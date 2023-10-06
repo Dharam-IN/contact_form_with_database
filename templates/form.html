@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Data Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #fafbfb;
+          }
+          .page-footer {
+            position: fixed;
+            right: 0;
+            bottom: 50px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            z-index: 1;
+          }
+          
+          .page-footer a {
+            display: flex;
+            margin-left: 4px;
+          }
+    </style>
+  </head>
+  <body>
+	<div class="container my-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h1 class="mb-3">Contact Us</h1>
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="your-name" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="your-name" name="first_name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="your-surname" class="form-label">Middle Name</label>
+                  <input type="text" class="form-control" id="your-surname" name="middle_name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="your-surname" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="your-surname" name="last_name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="your-email" class="form-label">Your Email</label>
+                  <input type="email" class="form-control" id="your-email" name="email" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="mobile_num" class="form-label">Mobile Number</label>
+                  <input type="tel" class="form-control" id="mobile_num" name="mobile_no">
+                </div>
+                <div class="col-md-6">
+                  <label for="address" class="form-label">Street Address</label>
+                  <input type="text" class="form-control" id="address" name="street_address">
+                </div>
+                <div class="col-md-6">
+                  <label for="state" class="form-label">State</label>
+                  <input type="text" class="form-control" id="state" name="state">
+                </div>
+                <div class="col-md-6">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" name="city">
+                </div>
+                <div class="col-md-6">
+                  <label for="Course">Course</label>
+                  <select class="form-select" name="course">
+                    <option value="">Select Course</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Full Stack">Full Stack</option>
+                    <option value="Dev Ops">Dev Ops</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Software Development">Software Development</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="Course">Duration</label>
+                  <select class="form-select" name="duration">
+                    <option value="">Select Duration</option>
+                    <option value="2 Months">2 Months</option>
+                    <option value="4 Months">4 Months</option>
+                    <option value="6 Months">6 Months</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-md-6 mx-auto">
+                      <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-dark w-100 fw-bold" >Send</button>
+                    </div>
+                  </div>
+                </div>
+                {%if messages %}
+                {%for massage in messages%}
+                <h2 style="color: green;">{{massage}}</h2>
+                {%endfor%}
+                {%endif%}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
